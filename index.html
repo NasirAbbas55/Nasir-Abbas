@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Nasir Abbas - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      background:
+        linear-gradient(120deg, rgba(194, 233, 251, 0.8), rgba(161, 196, 253, 0.8)),
+        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBNwWuB9JgFU0Qn8XFGRNPix356SoX-nMKqg&s') center/cover no-repeat fixed;
+      background-color: #a1c4fd;
+    }
+    header {
+      background: url('images/background.jpeg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 30px 20px;
+      position: relative;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    header * {
+      position: relative;
+      z-index: 1;
+    }
+    .profile-pic-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 16px auto;
+    }
+    .profile-pic-dp {
+      background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+      padding: 5px;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(0, 85, 165, 0.18), 0 1px 8px rgba(0,0,0,0.13);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
+    }
+    .profile-pic {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      background: #eaf6ff;
+      display: block;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 600px) {
+      .profile-pic-dp {
+        width: 82px;
+        height: 82px;
+        padding: 2px;
+      }
+      .profile-pic {
+        width: 70px;
+        height: 70px;
+      }
+      header {
+        padding: 32px 6px 10px 6px;
+      }
+    }
+    nav {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      z-index: 1;
+    }
+    nav a {
+      font-size: 1rem;
+      padding: 9px 14px;
+      min-width: 75px;
+      text-align: center;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    nav a:hover {
+      background: #ffcc00;
+      color: #003366;
+      transform: scale(1.05);
+    }
+    @media (max-width:600px) {
+      nav {
+        flex-direction: column;
+        gap: 4px;
+      }
+      nav a {
+        min-width: 90vw;
+        font-size: 1.05rem;
+        margin: 0 auto;
+      }
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 15px;
+    }
+    @media (max-width:600px) {
+      .container {
+        padding: 2vw;
+      }
+    }
+    .info-section, .section {
+      background: linear-gradient(120deg, #f8fafc 70%, #e9f1fa 100%);
+      padding: 22px 12px 13px 12px;
+      margin: 14px 0;
+      border-radius: 12px;
+      box-shadow: 0 1.5px 8px rgba(0, 85, 165, 0.07);
+    }
+    .section-title, h2 {
+      font-size: 1.2rem;
+      color: #0055a5;
+      font-weight: 700;
+      margin-bottom: 10px;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .section-title::after, h2::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 2px;
+      background: #ff6600;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    /* --- Experience Section Headings Styling --- */
+    .highlight-exp {
+      font-weight: 600;
+      color: #ff6600;
+      margin-right: 7px;
+      font-size: 1.03rem;
+      display: inline-block;
+    }
+    .tag-exp {
+      background: #d5eaff;
+      color: #0055a5;
+      border-radius: 12px;
+      padding: 3px 10px;
+      font-size: 0.93rem;
+      margin: 0 4px 4px 0;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .intro {
+      font-size: 0.98rem;
+      color: #1a263a;
+      margin-bottom: 8px;
+      line-height: 1.65;
+    }
+    .highlight {
+      font-weight: 600;
+      color: #ff6600;
+      margin-right: 7px;
+    }
+    .tag {
+      background: #d5eaff;
+      color: #0055a5;
+      border-radius: 12px;
+      padding: 3px 10px;
+      font-size: 0.93rem;
+      margin: 0 4px 4px 0;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .education-list, .role-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .education-list li, .role-list li {
+      margin-bottom: 8px;
+      padding-left: 0;
+      font-size: 0.99rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      word-break: break-word;
+    }
+    .icon {
+      font-size: 1.13em;
+    }
+    .degree, .place, .year, .field {
+      margin-right: 6px;
+    }
+    .degree, .job-title .at {
+      font-weight: 600;
+      color: #0055a5;
+    }
+    .field {
+      color: #ff6600;
+    }
+    .place {
+      color: #444;
+    }
+    .year {
+      color: #999;
+      font-size: 0.98em;
+    }
+    .job-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0055a5;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    /* Publications Grid - Consistent Card Layout */
+    .pub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 13px;
+    }
+    .pub-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 7px rgba(0, 85, 165, 0.11), 0 1px 4px rgba(0,0,0,0.10);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 210px;
+      /* increased min-height for bigger images */
+      max-width: 99vw;
+      margin: 0 auto;
+    }
+    .pub-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 4px 14px rgba(0,85,165,0.11), 0 2px 5px rgba(0,0,0,0.11);
+    }
+    .pub-card img {
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+      background: #e2eafc;
+      border-bottom: 1px solid #e0e7ff;
+      order: 0;
+      /* increased height for larger images */
+    }
+    .pub-details {
+      flex: 1;
+      padding: 8px 6px 8px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      order: 1;
+    }
+    .pub-details p {
+      font-size: 0.95rem;
+      color: #1a263a;
+      margin: 0;
+    }
+    .pub-details em {
+      color: #0055a5;
+      font-style: italic;
+    }
+    .pub-details a {
+      color: #ff6600;
+      font-weight: bold;
+      text-decoration: none;
+      margin-left: 5px;
+      transition: color 0.2s;
+    }
+    .pub-details a:hover {
+      text-decoration: underline;
+      color: #003366;
+    }
+    /* Stacking last two publication images below text on mobile */
+    @media (max-width: 900px) {
+      .pub-grid {
+        grid-template-columns: 1fr;
+      }
+      .pub-card img {
+        height: 155px;
+      }
+    }
+    @media (max-width: 600px) {
+      .pub-grid {
+        grid-template-columns: 1fr;
+      }
+      /* Stacking for the last two cards only */
+      .pub-card:nth-child(3), .pub-card:nth-child(4) {
+        flex-direction: column-reverse;
+      }
+      .pub-card:nth-child(3) .pub-details,
+      .pub-card:nth-child(4) .pub-details {
+        order: 0;
+      }
+      .pub-card:nth-child(3) img,
+      .pub-card:nth-child(4) img {
+        order: 1;
+        border-bottom: none;
+        border-top: 1px solid #e0e7ff;
+        height: 155px;
+      }
+    }
+    .social-links {
+      text-align: center;
+      margin-top: 14px;
+    }
+    .social-links a img.custom-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #007acc;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+      margin-right: 8px;
+      margin-left: 8px;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .social-links a img.custom-icon:hover {
+      transform: scale(1.13);
+      border-color: #ff6600;
+      box-shadow: 0 4px 9px rgba(0, 0, 0, 0.23);
+    }
+    footer {
+      background: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.90rem;
+      letter-spacing: 0.5px;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 15px;
+      right: 10px;
+      background: #0055a5;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+      cursor: pointer;
+      display: none;
+      font-size: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      z-index: 99;
+    }
+    .scroll-top:hover {
+      background: #ff6600;
+      transform: scale(1.1);
+    }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      align-items: flex-start;
+      margin-top: 7px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(110deg, #f0f8ff 60%, #e3eaff 100%);
+      border-radius: 12px;
+      box-shadow: 0 1.5px 5px rgba(0,85,165,0.09);
+      padding: 10px 14px;
+      max-width: 95vw;
+      min-width: 0;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.15s;
+      margin-bottom: 0;
+      border: 1px solid #a1c4fd;
+      cursor: pointer;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .contact-item:hover {
+      background: linear-gradient(110deg, #ffecd2 60%, #fcb69f 100%);
+      box-shadow: 0 3px 10px rgba(255,102,0,0.09);
+      border-color: #ff6600;
+      transform: translateY(-1px) scale(1.01);
+    }
+    .contact-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #007acc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.09);
+      font-size: 1rem;
+      color: #fff;
+      border: 1.5px solid #fff;
+      transition: background 0.3s, color 0.3s;
+      flex-shrink: 0;
+    }
+    .contact-icon img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      display: block;
+    }
+    .contact-value {
+      font-size: 0.97rem;
+      color: #1a263a;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+      word-break: break-all;
+    }
+    /* STACK EDUCATION ON SMALL SCREENS */
+    @media (max-width: 600px) {
+      .education-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.97rem;
+        gap: 2px;
+        margin-bottom: 12px;
+      }
+      .education-list .icon,
+      .education-list .degree,
+      .education-list .field,
+      .education-list .place,
+      .education-list .year {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 1px;
+      }
+      .education-list .year {
+        color: #888;
+        font-size: 0.93em;
+      }
+    }
+    @media (max-width:400px){
+      .section-title, h2 {
+        font-size: 1rem;
+      }
+      .info-section, .section {
+        padding: 7px 2vw 5px 2vw;
+        margin: 5px 0;
+        border-radius: 6px;
+      }
+      h1 {
+        font-size: 1.05rem;
+      }
+    }
+    /* Experience vertical list custom */
+    .specializations-list {
+      margin: 10px 0 0 0;
+      padding: 0 0 0 18px;
+      list-style: disc;
+    }
+    .specializations-list li {
+      display: list-item !important;
+      background: none !important;
+      color: #0055a5 !important;
+      padding: 0 !important;
+      margin: 0 0 7px 0 !important;
+      font-size: 0.99rem;
+      font-weight: 500;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="profile-pic-wrapper">
+    <div class="profile-pic-dp">
+      <img src="images/nasir.png" alt="Dr. Nasir Abbas" class="profile-pic" />
+    </div>
+  </div>
+  <h1>Dr. Nasir Abbas</h1>
+  <p>Lecturer, College of Commerce, Government College University Faisalabad</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<main class="container">
+  <section id="about" class="info-section">
+    <h2 class="section-title">About Me</h2>
+    <p class="intro">
+      <span class="emoji"></span>
+      <strong>Experienced academic</strong> in accounting, finance, and management.
+      10+ years teaching & research, passionate about practical learning, interdisciplinary research,
+      and innovative use of technology in education.
+    </p>
+    <p>
+      <span class="highlight">Areas of Interest:</span>
+      <span class="tag">Accounting</span>
+      <span class="tag">Finance</span>
+      <span class="tag">Islamic Finance</span>
+      <span class="tag">Management</span>
+      <span class="tag">Entrepreneurship</span>
+    </p>
+  </section>
+  <section id="education" class="info-section">
+    <h2 class="section-title">Education & Qualifications</h2>
+    <ul class="education-list">
+      <li>
+        <span class="icon"></span>
+        <span class="degree">🎓PhD Commerce</span>
+        <span class="field">Accounting & Finance</span>
+        <span class="place">BZU Multan</span>
+        <span class="year"></span>
+      </li>
+      <li>
+        <span class="icon"></span>
+        <span class="degree">🎓MS Business Administration</span>
+        <span class="place">NUML Islamabad</span>
+        <span class="year"></span>
+      </li>
+    </ul>
+  </section>
+  <section id="experience" class="info-section">
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="job-title">
+      <span class="icon">🏫</span> Lecturer <span class="at">at GC University Faisalabad</span>
+      <span class="year"></span>
+    </div>
+    <div style="margin-bottom:10px;">
+      <span class="highlight-exp">Specializations:</span>
+      <ul class="specializations-list">
+        <li>Accounting &amp; Finance</li>
+        <li>Islamic Finance</li>
+        <li>Business &amp; Management</li>
+        <li>Research &amp; Publications</li>
+        <li>Event Organization &amp; Mentoring</li>
+        <li>Digital Tools in Education</li>
+        <li>Academic Writing Specialist</li>
+        <li>Thesis Writing &amp; Editing</li>
+      </ul>
+    </div>
+    
+    
+    <p style="margin-top:20px;"><strong>Profiles:</strong></p>
+    <div style="display: flex; gap: 18px; align-items: center; margin-top: 10px; flex-wrap:wrap;">
+      <a href="https://orcid.org/0009-0000-1711-2963" aria-label="ORCID" target="_blank">
+        <img src="images/orcid.png" alt="ORCID Icon" style="width:32px; height:32px; border-radius:50%; object-fit:cover;">
+      </a>
+      <a href="https://www.researchgate.net/profile/Nasir-Abbas-4" aria-label="ResearchGate" target="_blank">
+        <img src="images/researchgate.png" alt="ResearchGate Icon" style="width:32px; height:32px; border-radius:50%; object-fit:cover;">
+      </a>
+      <a href="https://www.fiverr.com/users/nasir_44/seller_dashboard" aria-label="Fiverr" target="_blank">
+        <img src="images/fiver.png" alt="Fiverr Icon" style="width:32px; height:32px; border-radius:50%; object-fit:cover;">
+      </a>
+      <a href="https://upwork.com/freelancers/~01e1096ba1df71db92" aria-label="Upwork" target="_blank">
+        <img src="images/upwork.png" alt="Upwork Icon" style="width:32px; height:32px; border-radius:50%; object-fit:cover;">
+      </a>
+    </div>
+  </section>
+  <section id="publications" class="section">
+    <h2>Research Publications</h2>
+    <div class="pub-grid">
+      <div class="pub-card">
+        <img src="images/publication1.png" alt="Publication 1" />
+        <div class="pub-details">
+          <p>
+            Abbas, N., & Shahid, M. S. (2024).<br>
+            <em>Mapping the impact of green finance...</em>
+            <a href="https://doi.org/10.32350/aar.41.05" target="_blank">DOI</a>
+          </p>
+        </div>
+      </div>
+      <div class="pub-card">
+        <img src="images/pub2.jpeg" alt="Publication 2" />
+        <div class="pub-details">
+          <p>
+            Afzal, M. A., Munir, S., Abbas, N., & Farooq, A. (2024).<br>
+            <em>A Retrospective of Earnings Management...</em>
+            <a href="https://doi.org/10.26710/jafee.v10i2.3039" target="_blank">DOI</a>
+          </p>
+        </div>
+      </div>
+      <!-- LAST TWO CARDS: image will be stacked below text on mobile -->
+      <div class="pub-card">
+        <div class="pub-details">
+          <p>
+           Nasir Abbas,Gohar Mahmood;Fazeel.. (2024).<br>
+            <em>Fostering Social Entrepreneurial..</em>
+            <a href="https://doi.org/10.26710/sbsee.v5i3.2750" target="_blank">DOI</a>
+          </p>
+        </div>
+        <img src="images/pub3.jpeg" alt="Publication 3" />
+      </div>
+      <div class="pub-card">
+        <div class="pub-details">
+          <p>
+              Nasir Abbas;Ali Raza; Zainab... (2024).<br>
+            <em>A Comprehensive Examination of ...</em>
+            <a href="https://doi.org/10.26710/jafee.v9i4.2885" target="_blank">DOI</a>
+          </p>
+        </div>
+        <img src="images/pub5.jpeg" alt="Publication 4" />
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="contact-list">
+      <a href="mailto:nasirabbas@gcuf.edu.pk" class="contact-item" style="text-decoration:none;">
+        <span class="contact-icon" style="background: #28a745;">
+          <img src="images/email.png" alt="Email">
+        </span>
+        <span class="contact-value">nasirabbas@gcuf.edu.pk</span>
+      </a>
+      <a href="tel:+923026195414" class="contact-item" style="text-decoration:none;">
+        <span class="contact-icon" style="background: #ff6600;">
+          <img src="images/phone.jpeg" alt="Phone">
+        </span>
+        <span class="contact-value">+92-302-6195414</span>
+      </a>
+      <div class="contact-item">
+        <span class="contact-icon" style="background: #007acc;">
+          <img src="images/gcuf.jpg" alt="Location">
+        </span>
+        <span class="contact-value">GC University, Faisalabad, Pakistan</span>
+      </div>
+    </div>
+  </section>
+  <div class="social-links">
+    <a href="https://www.facebook.com/nasir.abbas.58511" aria-label="Facebook">
+      <img src="images/facebook.jpeg" alt="Facebook Icon" class="custom-icon">
+    </a>
+    <a href="https://www.linkedin.com/in/nasir-abbas-969503353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">
+      <img src="images/linkdin.png" alt="LinkedIn Icon" class="custom-icon">
+    </a>
+    <a href="https://www.instagram.com/nasir.abbas.gcuf?igsh=MW9hdTMyMHRjNW9laA==" aria-label="Instagram">
+      <img src="images/insta.jpeg" alt="Instagram Icon" class="custom-icon">
+    </a>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2025 Dr. Nasir Abbas | All Rights Reserved</p>
+</footer>
+<div class="scroll-top" onclick="scrollToTop()">Back to Top</div>
+<script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', function () {
+  const scrollBtn = document.querySelector('.scroll-top');
+  if (window.pageYOffset > 300) {
+    scrollBtn.style.display = 'block';
+  } else {
+    scrollBtn.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
